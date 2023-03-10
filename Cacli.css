@@ -23,6 +23,7 @@
     height: 125px;
     border-radius: 25%;
     padding-top: 20px;
+    border-radius: 0;
 }
 .element{
 height: 80px;

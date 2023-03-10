@@ -71,6 +71,9 @@ function show() {
   document.getElementById("screen").innerHTML = ans;
   num1 = ans;
   num2 = 0;
+  b = false;
+  p = false;
+  pvar = 1;
 }
 function back() {
   if (num2 == 0 && opt != 0) {
@@ -91,21 +94,24 @@ function back() {
   if (num1 == 0 && num2 == 0) document.getElementById("screen").innerHTML = "";
 }
 function decidor() {
+  let a;
+  if (num2 != 0) a = num2;
+  else a = "";
   switch (opt) {
     case 1:
-      document.getElementById("screen").innerHTML = num1 + "X" + num2;
+      document.getElementById("screen").innerHTML = num1 + "X" + a;
       break;
     case 2:
-      document.getElementById("screen").innerHTML = num1 + "/" + num2;
+      document.getElementById("screen").innerHTML = num1 + "/" + a;
       break;
     case 3:
-      document.getElementById("screen").innerHTML = num1 + "+" + num2;
+      document.getElementById("screen").innerHTML = num1 + "+" + a;
       break;
     case 4:
-      document.getElementById("screen").innerHTML = num1 + "-" + num2;
+      document.getElementById("screen").innerHTML = num1 + "-" + a;
       break;
     case 5:
-      document.getElementById("screen").innerHTML = num1 + "%" + num2;
+      document.getElementById("screen").innerHTML = num1 + "%" + a;
   }
 }
 function number(z) {
