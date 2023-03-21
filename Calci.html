@@ -7,26 +7,36 @@
     <div id="container">
       <div id="screen"></div>
       <div id="ac" onclick="ac()" class="element"><span>AC</span></div>
-      <div class="element operation"><span>()</span></div>
-      <div onclick="operation(5)" class="element operation"><span>%</span></div>
-      <div onclick="operation(2)" class="operation element"><span>/</span></div>
+      <div onclick="bracket()" class="element operation"><span>()</span></div>
+      <div onclick="operation('%')" class="element operation">
+        <span>%</span>
+      </div>
+      <div onclick="operation(`/`)" class="operation element">
+        <span>/</span>
+      </div>
       <div onclick="number(7)" class="element"><span>7</span></div>
       <div onclick="number(8)" class="element"><span>8</span></div>
       <div onclick="number(9)" class="element"><span>9</span></div>
-      <div onclick="operation(1)" class="element operation"><span>X</span></div>
+      <div onclick="operation(`*`)" class="element operation">
+        <span>X</span>
+      </div>
       <div onclick="number(4)" class="element"><span>4</span></div>
       <div onclick="number(5)" class="element"><span>5</span></div>
       <div onclick="number(6)" class="element"><span>6</span></div>
-      <div onclick="operation(4)" class="element operation"><span>-</span></div>
+      <div onclick="operation(`-`)" class="element operation">
+        <span>-</span>
+      </div>
       <div onclick="number(1)" class="element"><span>1</span></div>
       <div onclick="number(2)" class="element"><span>2</span></div>
       <div onclick="number(3)" class="element"><span>3</span></div>
-      <div onclick="operation(3)" class="element operation"><span>+</span></div>
+      <div onclick="operation(`+`)" class="element operation">
+        <span>+</span>
+      </div>
       <div onclick="number(0)" class="element"><span>0</span></div>
       <div class="element" onclick="point()"><span>.</span></div>
       <div onclick="back()" class="element"><span>&leftarrow;</span></div>
       <div onclick="show()" class="element" id="equal"><span>=</span></div>
     </div>
-    <script src="Calci.js"></script>
+    <script src="Newcalci.js"></script>
   </body>
 </html>

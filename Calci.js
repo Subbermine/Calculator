@@ -1,140 +1,54 @@
-// 1-multiply
-// 2-divide
-// 3-add
-// 4-subtract
-// 5-Percentage
-// 0-nothing
-var num1 = 0,
-  num2 = 0,
-  b = false,
-  ans = 0,
-  opt = 0,
-  p = false,
-  pvar = 1;
-function ac() {
-  b = false;
-  opt = 0;
-  ans = 0;
-  num1 = 0;
-  num2 = 0;
-  pvar = 1;
-  p = false;
-  document.getElementById("screen").innerHTML = "";
+var str = "",
+  showstr = "",
+  brac = false;
+function number(z) {
+  str += z;
+  showstr += z;
+  document.getElementById("screen").innerHTML = showstr;
+}
+function back() {
+  let z = str.slice(0, str.length - 1);
+  str = z;
+  let d = str.slice(0, str.length - 1);
+  showstr = d;
+  document.getElementById("screen").innerHTML = showstr;
 }
 function operation(z) {
   switch (z) {
-    case 1:
-      opt = z;
-      document.getElementById("screen").innerHTML = num1 + "X";
-      break;
-    case 2:
-      opt = z;
-      document.getElementById("screen").innerHTML = num1 + "/";
-      break;
-    case 3:
-      opt = z;
-      document.getElementById("screen").innerHTML = num1 + "+";
-      break;
-    case 4:
-      opt = z;
-      document.getElementById("screen").innerHTML = num1 + "-";
-      break;
-    case 5:
-      opt = z;
-      document.getElementById("screen").innerHTML = num1 + "%";
-  }
-  b = true;
-  p = false;
-  pvar = 1;
-}
-function show() {
-  switch (opt) {
-    case 1:
-      ans = num1 * num2;
-      break;
-    case 2:
-      ans = num1 / num2;
-      break;
-    case 3:
-      ans = num1 + num2;
-      break;
-    case 4:
-      ans = num1 - num2;
-      break;
-    case 5:
-      ans = (num1 * num2) / 100;
+    case "*":
+      showstr += "X";
       break;
     default:
-      ans = num1;
+      showstr += z;
   }
-
-  document.getElementById("screen").innerHTML = ans;
-  num1 = ans;
-  num2 = 0;
-  b = false;
-  p = false;
-  pvar = 1;
+  str += z;
+  document.getElementById("screen").innerHTML = showstr;
 }
-function back() {
-  if (num2 == 0 && opt != 0) {
-    b = false;
-    opt = 0;
-    document.getElementById("screen").innerHTML = num1;
-  } else if (b) {
-    var last = num2 % 10;
-    num2 -= last;
-    num2 /= 10;
-    decidor();
+function ac() {
+  str = "";
+  showstr = "";
+  document.getElementById("screen").innerHTML = "";
+}
+function show() {
+  document.getElementById("screen").innerHTML = eval(str);
+  let z = eval(str);
+  str = z;
+  showstr = z;
+}
+function bracket() {
+  if (!brac) {
+    str += "(";
+    showstr += "(";
+    brac = true;
   } else {
-    var last = num1 % 10;
-    num1 -= last;
-    num1 /= 10;
-    document.getElementById("screen").innerHTML = num1;
+    str += ")";
+    showstr += ")";
+    brac = false;
   }
-  if (num1 == 0 && num2 == 0) document.getElementById("screen").innerHTML = "";
-}
-function decidor() {
-  let a;
-  if (num2 != 0) a = num2;
-  else a = "";
-  switch (opt) {
-    case 1:
-      document.getElementById("screen").innerHTML = num1 + "X" + a;
-      break;
-    case 2:
-      document.getElementById("screen").innerHTML = num1 + "/" + a;
-      break;
-    case 3:
-      document.getElementById("screen").innerHTML = num1 + "+" + a;
-      break;
-    case 4:
-      document.getElementById("screen").innerHTML = num1 + "-" + a;
-      break;
-    case 5:
-      document.getElementById("screen").innerHTML = num1 + "%" + a;
-  }
-}
-function number(z) {
-  switch (b) {
-    case true:
-      if (p) {
-        pvar /= 10;
-        z *= pvar;
-      } else num2 *= 10;
-      num2 += z;
-      decidor();
-      break;
-    case false:
-      if (p) {
-        pvar /= 10;
-        z *= pvar;
-      } else {
-        num1 *= 10;
-      }
-      num1 += z;
-      document.getElementById("screen").innerHTML = num1;
-  }
+  document.getElementById("screen").innerHTML = showstr;
 }
 function point() {
-  p = true;
+  str += ".";
+  showstr += ".";
+  document.getElementById("screen").innerHTML = showstr;
 }
