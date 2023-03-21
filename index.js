@@ -28,6 +28,7 @@ function ac() {
   str = "";
   showstr = "";
   document.getElementById("screen").innerHTML = "";
+  brac = false;
 }
 function show() {
   document.getElementById("screen").innerHTML = eval(str);
